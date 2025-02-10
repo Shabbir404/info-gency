@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Galada&family=Tiro+Bangla:ital@0;1&display=swap');
+
+/* Main font */
+.tiro-bangla-regular {
+    font-family: "Tiro Bangla", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Headline font */
+.galada-regular {
+    font-family: "Galada", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.news-ticker-container {
+    width: 100%;
+    overflow: hidden; /* Hide the overflowed part of the ticker */
+    background-color: #b7ffbf; /* Dark background color for better contrast */
+    color: #f52727; /* White text color */
+    font-size: 1.5rem; /* Adjust font size */
+    font-weight: bold; /* Bold text */
+    padding: 10px 0; /* Padding for spacing */
+    text-align: center; /* Center the text */
+}
+
+/* News ticker text */
+.news-ticker {
+    display: inline-block;
+    white-space: nowrap;
+    animation: ticker 260s linear infinite; 
+    cursor: pointer;
+}
+.news-ticker:hover {
+    animation-play-state: paused; 
+}
+
+/* Animation to scroll the text */
+@keyframes ticker {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%); 
+    }
+}
+
+/* Add styles for individual items */
+.news-item {
+    padding: 0 15px;
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: "Tiro Bangla", serif;
+}

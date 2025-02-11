@@ -7,6 +7,7 @@ import { FaSquareXTwitter } from "react-icons/fa6";
 import { MdAttachEmail } from "react-icons/md";
 import { useEffect, useState } from 'react';
 import { CiMenuFries } from "react-icons/ci";
+import Typewriter from 'typewriter-effect';
 
 const Header = () => {
     // Moments js start
@@ -39,8 +40,10 @@ const Header = () => {
 
     //menu works
     const [menu, setMenu] = useState(false);
+    const [isClicked, setIsClicked] = useState(false);
     const handleMenu = () => {
         setMenu(!menu);
+        setIsClicked(!isClicked);
     }
     //menu works end
 
@@ -96,32 +99,73 @@ const Header = () => {
             {/* mobile screen header */}
             <div className='md:hidden'>
                 <div className='flex'>
-                    <img className='w-30 h-30 -ml-6' src={mobileLogo} alt="" />
-                    <h1 className='text-center mt-12'>{formattedTime}</h1>
-                    <div>
+                    <div className='flex '>
+                        <img className='w-30 h-30 -ml-7.5' src={mobileLogo} alt="" />
+                        <h1 className='text-center mt-12'>{formattedTime}</h1>
+                    </div>
+                    <div className=''>
                         {!menu ?
                             <div className='mt-12 ml-10' onClick={handleMenu}>
-                                <CiMenuFries className='text-3xl cursor-pointer rotate-180'></CiMenuFries>
+                                <CiMenuFries className='text-3xl cursor-pointer '></CiMenuFries>
                             </div>
                             :
-                            <div className='bg-amber-50 w-90 h-screen soft-animate '>
-                                <div onClick={handleMenu} className='ml-10 pt-5'>
-                                    <CiMenuFries className=' cursor-pointer text-3xl hover:text-green-500  '> </CiMenuFries>
+                            <div className={'bg-amber-50  soft-animate w-80 h-screen ml-60 fixed top-0 left-0 z-10'}>
+                                <div onClick={handleMenu} className='ml-10 '>
+                                    <CiMenuFries className='cursor-pointer rotate-180 mt-12 text-3xl hover:text-green-500' />
                                 </div>
-                                <div className='bg-amber-50 '>
-                                    <div className='   p-10  tiro-bangla-regular text-xl  -mt-4'>
-                                        <h3 className=' mt-5 cursor-pointer border-gray-400  hover:text-blue-900  text-blue-500'>এনসিটিবি</h3>
-                                        <h3 className=' mt-5 cursor-pointer border-gray-400  hover:text-green-900  text-green-500'>চাকরি</h3>
-                                        <h3 className=' mt-5 cursor-pointer border-gray-400  hover:text-yellow-700  text-yellow-500'>সরকারি ঘোষনা</h3>
-                                        <h3 className=' mt-5 cursor-pointer border-gray-400  hover:text-pink-900  text-pink-500'>খবরের কাগজ</h3>
-                                        <h4 className=' mt-5 cursor-pointer border-gray-400 hover:text-orange-800  text-orange-500'>দ্রব্যমুল্যের দাম</h4>
-                                    </div>
+                                <div className=''>
+                                    <div className='p-10 tiro-bangla-regular text-xl -mt-4'>
+                                        <h3 className='mt-5 cursor-pointer hover:text-blue-900 text-blue-500'>এনসিটিবি</h3>
+                                        <h3 className='mt-5 cursor-pointer hover:text-green-900 text-green-500'>চাকরি</h3>
+                                        <h3 className='mt-5 cursor-pointer hover:text-yellow-700 text-yellow-500'>সরকারি ঘোষনা</h3>
+                                        <h3 className='mt-5 cursor-pointer hover:text-pink-900 text-pink-500'>খবরের কাগজ</h3>
+                                        <h4 className='mt-5 cursor-pointer hover:text-orange-800 text-orange-500'>দ্রব্যমুল্যের দাম</h4>
+                                        <div className='pt-5'>
+                                            <h4 className='mt-5 cursor-pointer hover:text-gray-900 text-gray-700'>আমাদের সম্পর্কে</h4>
+                                            <h4 className='mt-5 cursor-pointer hover:text-gray-900 text-gray-700'>গোপনীয়তা নীতি</h4>
+                                            <h4 className='mt-5 cursor-pointer hover:text-gray-900 text-gray-700'>যোগাযোগ</h4>
+                                        </div>
 
+                                        <div className="flex gap-4 text-2xl mt-10">
+                                            <FaFacebook className='hover:bg-white cursor-pointer        hover:text-blue-700'></FaFacebook>
+                                            <FaSquareXTwitter className='hover:text-white cursor-pointer hover:bg-black'></FaSquareXTwitter>
+                                            <MdAttachEmail className='hover:text-red-700 cursor-pointer hover:bg-white mt-0.5'></MdAttachEmail>
+                                        </div>
+
+                                        <div className='mt-10 w-10/12 text-red-600'>
+                                            <Typewriter
+                                                options={{
+                                                    strings: ['Developed by [Shabbir Ahamed]'],
+                                                    autoStart: true,
+                                                    loop: true,
+                                                }}
+                                            />
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         }
                     </div>
+                </div>
 
+                <div>
+                    <div className='news-ticker-container'>
+                        <div className='news-ticker'>
+                            <div >
+                                {news.length > 0 ? (
+                                    <>
+                                        {news.map((item, index) => (
+                                            <span key={index} className=''>
+                                                {item.title} ।
+                                            </span>
+                                        ))}
+                                    </>
+                                ) : (
+                                    <p>Loading news...</p>
+                                )}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             {/* mobile screen header end */}

@@ -62,7 +62,7 @@ const Header = () => {
                 <div className='md:flex md:gap-5 justify-between md:w-10/12 md:mx-auto'>
                     <img className='md:w-[400px] w-full h-48' src={logo} alt="" />
                     <div>
-                        <div className='p-5 rounded-full bg-gray-600 mt-19'></div>
+                        <button className="btn btn-success mt-19">লগইন</button>
                     </div>
                     <h2 className='md:hidden'>its for mobile screen</h2>
                 </div>
@@ -103,6 +103,7 @@ const Header = () => {
                         <img className='w-30 h-30 -ml-7.5' src={mobileLogo} alt="" />
                         <h1 className='text-center mt-12'>{formattedTime}</h1>
                     </div>
+                    {/* menu start */}
                     <div className=''>
                         {!menu ?
                             <div className='mt-12 ml-10' onClick={handleMenu}>
@@ -112,6 +113,9 @@ const Header = () => {
                             <div className={'bg-amber-50  soft-animate w-80 h-screen ml-60 fixed top-0 left-0 z-10'}>
                                 <div onClick={handleMenu} className='ml-10 '>
                                     <CiMenuFries className='cursor-pointer rotate-180 mt-12 text-3xl hover:text-green-500' />
+                                </div>
+                                <div>
+                                    <button className="btn btn-success ml-10 mt-8">লগইন</button>
                                 </div>
                                 <div className=''>
                                     <div className='p-10 tiro-bangla-regular text-xl -mt-4'>
@@ -126,7 +130,7 @@ const Header = () => {
                                             <h4 className='mt-5 cursor-pointer hover:text-gray-900 text-gray-700'>যোগাযোগ</h4>
                                         </div>
 
-                                        <div className="flex gap-4 text-2xl mt-10">
+                                        <div className="flex gap-4 text-2xl mt-5">
                                             <FaFacebook className='hover:bg-white cursor-pointer        hover:text-blue-700'></FaFacebook>
                                             <FaSquareXTwitter className='hover:text-white cursor-pointer hover:bg-black'></FaSquareXTwitter>
                                             <MdAttachEmail className='hover:text-red-700 cursor-pointer hover:bg-white mt-0.5'></MdAttachEmail>
@@ -146,6 +150,7 @@ const Header = () => {
                             </div>
                         }
                     </div>
+                    {/* menu end */}
                 </div>
 
                 <div>

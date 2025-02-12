@@ -72,11 +72,11 @@ const Header = () => {
                 </div>
                 <div>
                     <div className='hidden tiro-bangla-regular md:flex md:gap-5 text-xl justify-center  -mt-8'>
-                        <h3 className='border-r pr-4  cursor-pointer border-gray-400  hover:text-blue-900 hover:border-b text-blue-500'>এনসিটিবি</h3>
-                        <h3 className='border-r pr-4  cursor-pointer border-gray-400  hover:text-green-900 hover:border-b text-green-500'>চাকরি</h3>
-                        <h3 className='border-r pr-4  cursor-pointer border-gray-400  hover:text-yellow-700 hover:border-b text-yellow-500'>সরকারি ঘোষনা</h3>
-                        <h3 className='border-r pr-4  cursor-pointer border-gray-400  hover:text-pink-900 hover:border-b text-pink-500'>খবরের কাগজ</h3>
-                        <h4 className='pr-4 cursor-pointer border-gray-400 hover:text-orange-800 hover:border-b text-orange-500'>দ্রব্যমুল্যের দাম</h4>
+                        <a target="_blank" href='https://nctb.gov.bd/' className='border-r pr-4  cursor-pointer border-gray-400  hover:text-blue-900 hover:border-b text-blue-500'>এনসিটিবি</a>
+                        <a target="_blank" href='https://app.shomvob.co/' className='border-r pr-4  cursor-pointer border-gray-400  hover:text-green-900 hover:border-b text-green-500'>চাকরি</a>
+                        <a target="_blank" href='https://goto.now/JwH4g' className='border-r pr-4  cursor-pointer border-gray-400  hover:text-yellow-700 hover:border-b text-yellow-500'>সরকারি ঘোষনা</a>
+                        <a target="_blank" href='https://www.allbanglanewspaper.xyz/' className='border-r pr-4  cursor-pointer border-gray-400  hover:text-pink-900 hover:border-b text-pink-500'>খবরের কাগজ</a>
+                        <a target="_blank" href='https://dam.gov.bd/site/page/77c3d769-4cc5-43a4-bb9d-c82e51fdc292' className='pr-4 cursor-pointer border-gray-400 hover:text-orange-800 hover:border-b text-orange-500'>দ্রব্যমুল্যের দাম</a>
                     </div>
                 </div>
                 {/* headline setting  */}
@@ -125,15 +125,34 @@ const Header = () => {
                                 </div>
                                 <div className=''>
                                     <div className='p-10 tiro-bangla-regular text-xl -mt-4'>
-                                        <h3 className='mt-5 cursor-pointer hover:text-blue-900 text-blue-500'>এনসিটিবি</h3>
-                                        <h3 className='mt-5 cursor-pointer hover:text-green-900 text-green-500'>চাকরি</h3>
-                                        <h3 className='mt-5 cursor-pointer hover:text-yellow-700 text-yellow-500'>সরকারি ঘোষনা</h3>
-                                        <h3 className='mt-5 cursor-pointer hover:text-pink-900 text-pink-500'>খবরের কাগজ</h3>
-                                        <h4 className='mt-5 cursor-pointer hover:text-orange-800 text-orange-500'>দ্রব্যমুল্যের দাম</h4>
+                                        <a href="https://nctb.gov.bd/" target="_blank" rel="noopener noreferrer">
+                                            <h1 className='mt-5 cursor-pointer hover:text-blue-900 text-blue-500'>
+                                                এনসিটিবি</h1>
+                                        </a>
+                                        <a href="https://app.shomvob.co/" target="_blank" rel="noopener noreferrer">
+                                            <h1 className='mt-5 cursor-pointer hover:text-green-900 text-green-500'>
+                                                চাকরি</h1>
+                                        </a>
+                                        <a href="https://goto.now/JwH4g" target="_blank" rel="noopener noreferrer">
+                                            <h1 className='mt-5 cursor-pointer hover:text-yellow-700 text-yellow-500'>
+                                                সরকারি ঘোষনা</h1>
+                                        </a>
+                                        <a href="https://www.allbanglanewspaper.xyz/" target="_blank" rel="noopener noreferrer">
+                                            <h1 className='mt-5 cursor-pointer hover:text-pink-900 text-pink-500'>
+                                                খবরের কাগজ</h1>
+                                        </a>
+                                        <a href="https://dam.gov.bd/site/page/77c3d769-4cc5-43a4-bb9d-c82e51fdc292" target="_blank" rel="noopener noreferrer">
+                                            <h1 className='mt-5 cursor-pointer hover:text-orange-800 text-orange-500'>
+                                                দ্রব্যমুল্যের দাম</h1>
+                                        </a>
+
                                         <div className='pt-5'>
-                                            <h4 className='mt-5 cursor-pointer hover:text-gray-900 text-gray-700'>আমাদের সম্পর্কে</h4>
-                                            <h4 className='mt-5 cursor-pointer hover:text-gray-900 text-gray-700'>গোপনীয়তা নীতি</h4>
-                                            <h4 className='mt-5 cursor-pointer hover:text-gray-900 text-gray-700'>যোগাযোগ</h4>
+                                            <h4 className='mt-5 cursor-pointer hover:text-gray-900 text-gray-700'>
+                                                আমাদের সম্পর্কে</h4>
+                                            <h4 className='mt-5 cursor-pointer hover:text-gray-900 text-gray-700'>
+                                                গোপনীয়তা নীতি</h4>
+                                            <h4 className='mt-5 cursor-pointer hover:text-gray-900 text-gray-700'>
+                                                যোগাযোগ</h4>
                                         </div>
 
                                         <div className="flex gap-4 text-2xl mt-5">
@@ -153,11 +172,11 @@ const Header = () => {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div >
                         }
-                    </div>
+                    </div >
                     {/* menu end */}
-                </div>
+                </div >
 
                 <div className=''>
                     <div className='news-ticker-container'>
@@ -178,9 +197,9 @@ const Header = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div >
             {/* mobile screen header end */}
-        </div>
+        </div >
     );
 };
 

@@ -26,7 +26,6 @@ const Blood_add = () => {
     const [selectedYesNo, setSelectedYesNo] = useState(null);
     const [selectedGender, setSelectedGender] = useState(null);
 
-
     const handleBloodGroupChange = selected => {
         setSelectedBloodGroup(selected);
 

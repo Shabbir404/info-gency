@@ -8,6 +8,7 @@ import { MdAttachEmail } from "react-icons/md";
 import { useEffect, useState } from 'react';
 import { CiMenuFries } from "react-icons/ci";
 import Typewriter from 'typewriter-effect';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     // Moments js start
@@ -60,9 +61,12 @@ const Header = () => {
                     </div>
                 </div>
                 <div className='md:flex md:gap-5 justify-between md:w-10/12 md:mx-auto'>
-                    <img className='md:w-[400px] w-full h-48' src={logo} alt="" />
-                    <div>
+                    <Link to='/'>
+                        <img className='md:w-[400px] w-full h-48' src={logo} alt="" />
+                    </Link>
+                    <div className='flex gap-4'>
                         <button className="btn btn-success mt-19">লগইন</button>
+                        <Link to='bloodAdd' className="btn btn-success mt-19">যুক্ত করুন</Link>
                     </div>
                     <h2 className='md:hidden'>its for mobile screen</h2>
                 </div>
@@ -99,10 +103,12 @@ const Header = () => {
             {/* mobile screen header */}
             <div className='md:hidden'>
                 <div className='flex'>
-                    <div className='flex '>
-                        <img className='w-30 h-30 -ml-7.5' src={mobileLogo} alt="" />
+
+                    <div className='flex'>
+                        <img className='w-30 h-30 -ml-8.5' src={mobileLogo} alt="" />
                         <h1 className='text-center mt-12'>{formattedTime}</h1>
                     </div>
+
                     {/* menu start */}
                     <div className=''>
                         {!menu ?
@@ -153,7 +159,7 @@ const Header = () => {
                     {/* menu end */}
                 </div>
 
-                <div>
+                <div className=''>
                     <div className='news-ticker-container'>
                         <div className='news-ticker'>
                             <div >

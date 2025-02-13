@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import './blood.css'
 import Select from 'react-select'
-
+import Swal from 'sweetalert2'
+import { useNavigate } from 'react-router-dom';
 const Blood_add = () => {
 
     const options = [
@@ -33,13 +34,16 @@ const Blood_add = () => {
 
     const handleYesNoChange = selected => {
         setSelectedYesNo(selected);
-
     };
 
     const handleGenderChange = selected => {
         setSelectedGender(selected);
-
     };
+
+    const navigate = useNavigate();
+
+
+    const [postData, setPostData] = useState();
 
     const handleFormSubmit = e => {
         e.preventDefault();
@@ -50,17 +54,46 @@ const Blood_add = () => {
             phone: e.target.phone.value,
             city: e.target.city.value,
             upazila: e.target.upazila.value,
+            url: e.target.url.value,
             bloodGroup: selectedBloodGroup?.label || '',
             yesNo: selectedYesNo?.label || '',
             gender: selectedGender?.label || ''
         };
+        // console.log(obj);
 
-        console.log(obj);
+        fetch('http://localhost:3000/bloodDonar', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(obj)
+        })
+            .then(res => {
+                res.json()
+            })
+            .then(data => {
+                setPostData(data);
+
+                Swal.fire({
+                    title: 'শুভেচ্ছা!',
+                    text: `${obj.name} আপনার তথ্য সফলভাবে যুক্ত হয়েছে`,
+                    icon: 'success',
+                    confirmButtonText: 'Ok',
+                })
+                    .then(() => {
+                        navigate('/');
+                    });
+
+            })
+            .catch(err => {
+                console.error('Error:', err);
+            });
+
     };
 
     return (
         <div className="mt-10">
-            <div className="bg-green-50 w-6/12 h-[530px] mx-auto rounded-lg shadow-md">
+            <div className="bg-green-50 w-6/12 h-[620px] mb-10 mx-auto rounded-lg shadow-md">
                 <h1 className="galada-regular text-3xl text-center pt-6">রক্তদান করতে ইচ্ছুকের নাম</h1>
                 <hr className='border-t-2 mt-3 border-dashed border-gray-500' />
 
@@ -69,12 +102,13 @@ const Blood_add = () => {
                         <div className=" mt-4 flex gap-4 ">
                             <div className='ml-7'>
                                 <legend className="fieldset-legend ">আপনার নাম লিখুন</legend>
-                                <input name='name' type="text" className="w-96 input" placeholder="Type here" />
+                                <input required name='name' type="text" className="w-96 input" placeholder="Type here" />
                             </div>
                             <div>
                                 <h1 className='fieldset-legend'> আপনার রক্তের গ্রুপ কি?</h1>
                                 <div className='w-48'>
                                     <Select
+                                        required
                                         defaultValue={selectedBloodGroup}
                                         onChange={handleBloodGroupChange}
                                         options={options}
@@ -85,12 +119,13 @@ const Blood_add = () => {
                         <div className='flex gap-4 mt-4'>
                             <div className='ml-7'>
                                 <legend className="fieldset-legend ">আপনার বয়স কত?</legend>
-                                <input name='age' type="text" className="w-96 input" placeholder="Type here" />
+                                <input required name='age' type="text" className="w-96 input" placeholder="Type here" />
                             </div>
                             <div>
                                 <h1 className='fieldset-legend'> আগে রক্তদান করেছিন কি?</h1>
                                 <div className='w-48'>
                                     <Select
+                                        required
                                         defaultValue={selectedYesNo}
                                         onChange={handleYesNoChange}
                                         options={yesNo}
@@ -101,12 +136,13 @@ const Blood_add = () => {
                         <div className='flex gap-4 mt-4'>
                             <div className='ml-7'>
                                 <legend className="fieldset-legend ">মোবাইল নাম্বার লিখুন</legend>
-                                <input name='phone' type="text" className="w-96 input" placeholder="Type here" />
+                                <input required name='phone' type="text" className="w-96 input" placeholder="Type here" />
                             </div>
                             <div>
                                 <legend className="fieldset-legend ">আপনি নারী/পুরুষ</legend>
                                 <div className='w-48'>
                                     <Select
+                                        required
                                         defaultValue={selectedGender}
                                         onChange={handleGenderChange}
                                         options={gendar}
@@ -118,12 +154,16 @@ const Blood_add = () => {
                         <div className='flex gap-3 mt-4'>
                             <div className='ml-7'>
                                 <legend className="fieldset-legend ">জেলার নাম লিখুন</legend>
-                                <input name='city' type="text" className="w-[290px] input" placeholder="Type here" />
+                                <input required name='city' type="text" className="w-[290px] input" placeholder="Type here" />
                             </div>
                             <div className=''>
                                 <legend className="fieldset-legend ">উপজেলার নাম লিখুন</legend>
-                                <input name='upazila' type="text" className="w-[290px] input" placeholder="Type here" />
+                                <input required name='upazila' type="text" className="w-[290px] input" placeholder="Type here" />
                             </div>
+                        </div>
+                        <div className='ml-7 mt-4'>
+                            <legend className="fieldset-legend ">ছবির URL এ্যাড্রেস দিন</legend>
+                            <input required name='url' type="text" className="w-[592px] input" placeholder="Type here" />
                         </div>
                         <button type='submit' className="btn btn-success text-white mt-6 w-full">নিজেকে যুক্ত করুন</button>
                     </div>

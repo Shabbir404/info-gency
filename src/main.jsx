@@ -9,6 +9,7 @@ import {
 import Root from './Components/Root/Root';
 import Home from './Components/Home/Home';
 import Blood_add from './Components/AddingFormBlood/Blood_add';
+import Blood from './Components/Blood/Blood';
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: '/bloodAdd',
         element: <Blood_add></Blood_add>
+      },
+      {
+        path: '/bloodPage',
+        element: <Blood></Blood>
       }
 
     ]
